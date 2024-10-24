@@ -1,24 +1,27 @@
 <?php
-// Exit if accessed directly
-if ( !defined( 'ABSPATH' ) ) exit;
+// Fonction pour enregistrer les emplacements de menu//
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'primary' => __( 'Menu principal' ),
+            'footer' => __( 'Menu du pied de page' )
+        )
+    );
+}
 
-// BEGIN ENQUEUE PARENT ACTION
-// AUTO GENERATED - Do not modify or remove comment markers above or below:
+// Appele la fonction pour enregistrer les menus//
+add_action('init', 'register_my_menus');
 
-if ( !function_exists( 'chld_thm_cfg_locale_css' ) ):
-    function chld_thm_cfg_locale_css( $uri ){
-        if ( empty( $uri ) && is_rtl() && file_exists( get_template_directory() . '/rtl.css' ) )
-            $uri = get_template_directory_uri() . '/rtl.css';
-        return $uri;
-    }
-endif;
-add_filter( 'locale_stylesheet_uri', 'chld_thm_cfg_locale_css' );
-         
-if ( !function_exists( 'child_theme_configurator_css' ) ):
-    function child_theme_configurator_css() {
-        wp_enqueue_style( 'chld_thm_cfg_child', trailingslashit( get_stylesheet_directory_uri() ) . 'style.css', array( 'twenty-twenty-one-custom-color-overrides','twenty-twenty-one-style','twenty-twenty-one-style','twenty-twenty-one-print-style' ) );
-    }
-endif;
-add_action( 'wp_enqueue_scripts', 'child_theme_configurator_css', 10 );
+function theme_enqueue_styles() {
+    // Enregistrement du style
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
+}
 
-// END ENQUEUE PARENT ACTION
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+
+
+// Enregistrement des scripts
+wp_enqueue_script('jquery'); // /jQuery est inclus en premier//
+wp_enqueue_script('script', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array('jquery'), '1.0.0', true);
+
+

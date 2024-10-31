@@ -1,0 +1,61 @@
+.wpcf7-form.init, 
+.wpcf7-form.invalid, 
+.wpcf7-form.sent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#wpcf7-f30-o1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wpcf7-f30-o1 p {
+    font-family: 'Poppins';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    margin: 7px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+
+.wpcf7-form-control.wpcf7-text, 
+.wpcf7-form-control.wpcf7-textarea {
+    color: black !important;
+}
+
+.wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
+    border-radius: 7px;
+    height: 40px;
+    width: 263px;
+    border: 2px solid #B8BBC2;
+}
+
+.wpcf7-form-control.wpcf7-textarea {
+    border-radius: 7px;
+    height: 210px;
+    width: 263px;
+    border: 2px solid #B8BBC2;
+}
+
+.wpcf7-form-control.has-spinner.wpcf7-submit {
+    width: 270px;
+    height: 50px;
+    border: none;
+    padding: 0;
+    font-family: 'Space_Mono';
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D8D8D8;
+}
+
+.wpcf7-response-output {
+    margin-top: -20px;
+}

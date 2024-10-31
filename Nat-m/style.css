@@ -32,14 +32,13 @@ a {
   text-transform: uppercase;
 }
 
-.site-logo img {
-  width: 216px;
-  height: 14px;
-}
-
 .site-logo {
   margin-right: 20px;
   margin-left: 16px;
+}
+.site-logo img {
+  width: 216px;
+  height: 14px;
 }
 
 .site-header {
@@ -50,20 +49,17 @@ a {
   padding: 10px;
   border-top: 1px solid black;
 }
-
-.footer-navigation {
+.site-footer .footer-navigation {
   display: flex;
   justify-content: center;
 }
-
-.footer-menu {
+.site-footer .footer-navigation .footer-menu {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
 }
-
-.footer-menu li {
+.site-footer .footer-navigation .footer-menu li {
   margin: 0 40px;
 }
 
@@ -164,9 +160,7 @@ a {
   margin-bottom: 0;
 }
 
-.wpcf7-form.init,
-.wpcf7-form.invalid,
-.wpcf7-form.sent {
+.wpcf7-form.init, .wpcf7-form.invalid, .wpcf7-form.sent {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,7 +173,6 @@ a {
   justify-content: center;
   padding: 40px;
 }
-
 #wpcf7-f30-o1 p {
   font-family: "Poppins";
   font-size: 12px;
@@ -191,25 +184,21 @@ a {
   padding: 5px;
 }
 
-.wpcf7-form-control.wpcf7-text,
-.wpcf7-form-control.wpcf7-textarea {
+.wpcf7-form-control.wpcf7-text, .wpcf7-form-control.wpcf7-textarea {
   color: black !important;
 }
-
 .wpcf7-form-control.wpcf7-text.wpcf7-validates-as-required {
   border-radius: 7px;
   height: 40px;
   width: 263px;
   border: 2px solid #B8BBC2;
 }
-
 .wpcf7-form-control.wpcf7-textarea {
   border-radius: 7px;
   height: 210px;
   width: 263px;
   border: 2px solid #B8BBC2;
 }
-
 .wpcf7-form-control.has-spinner.wpcf7-submit {
   width: 270px;
   height: 50px;

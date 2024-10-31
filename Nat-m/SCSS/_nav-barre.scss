@@ -5,14 +5,15 @@
     margin: 0 125px;
 }
    
-.main-menu li {
-    margin-left: 50px;
-    
-}
+
 
 .main-menu {
     display: flex;
     list-style: none;
+    li {
+        margin-left: 50px;
+        
+    }
 }
 
 a {

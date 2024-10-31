@@ -67,6 +67,22 @@ a {
   margin: 0 40px;
 }
 
+@keyframes moveIn {
+  from {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-50%, -100px);
+  }
+}
+@keyframes moveOut {
+  from {
+    transform: translate(-50%, -100px);
+  }
+  to {
+    transform: translate(-50%, -50%);
+  }
+}
 .modal-btn {
   padding: 10px 14px;
   font-size: 18px;
@@ -83,13 +99,11 @@ a {
   top: 0;
   width: 100vw;
   height: 100vh;
-  transition: visibility 0.6s; /* animation fermeture de la modal */
 }
 
 .modal-container.active {
   display: block;
   visibility: visible;
-  transition: visibility 0.4s; /* animation ouverture de la modal */
 }
 
 .overlay {
@@ -98,12 +112,10 @@ a {
   width: 100%;
   height: 100%;
   background: rgba(97, 97, 97, 0.8274509804);
-  transition: opacity 0.4s 0.2s ease-out; /* délai de disparition overlay de 0,2s*/
 }
 
 .modal-container.active .overlay {
   opacity: 1;
-  transition: opacity 0.8s ease-out; /* apparition direct de l'overlay à l'ouverture de la modal */
 }
 
 .modal {
@@ -118,14 +130,16 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, calc(-50% - 50px));
+  transform: translate(-50%, -50%);
   transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  animation: moveIn 0.4s forwards;
 }
 
 .modal-container.active .modal {
   opacity: 1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out; /* apparition de la modal après l'overlay à l'ouverture */
+  transform: translate(-50%, -100px);
+  transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
+  animation: moveOut 0.4s forwards; /* apparition de la modal après l'overlay à l'ouverture */
 }
 
 .close-modal {
@@ -138,8 +152,11 @@ a {
 }
 
 .modal img {
-  height: 84px;
-  width: 500px;
+  height: 106px;
+  width: 886px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
 }
 
 .modal h1 {
@@ -160,6 +177,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 40px;
 }
 
 #wpcf7-f30-o1 p {
@@ -170,6 +188,7 @@ a {
   margin: 7px;
   line-height: 18px;
   text-transform: uppercase;
+  padding: 5px;
 }
 
 .wpcf7-form-control.wpcf7-text,

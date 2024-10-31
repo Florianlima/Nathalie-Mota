@@ -9,31 +9,26 @@
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
-    <!-- Début de l'en-tête du site -->
+    
     <header class="site-header">
 
         <div class="container">
 
-            <!-- Logo du site -->
+            
             <div class="site-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>">
                     <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/logo.png" alt="Logo">
                 </a>
             </div>
 
-            <!-- Navigation du site -->
+            
             <nav class="site-navigation">
 
-           <!-- <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <div class="burger">
-                        <span class="line"></span>
-                    </div>
-                </button> -->
                 
-                <!-- Liste de navigation principale -->
+              
                 <ul class="menu">
                     <?php
-                    // Affichage du menu principal//
+                  
                     wp_nav_menu(array(
                         'theme_location' => 'primary',
                         'menu_class' => 'main-menu',
@@ -44,4 +39,4 @@
 
         </div>
     </header>
-    <!-- Fin de l'en-tête du site -->
+    

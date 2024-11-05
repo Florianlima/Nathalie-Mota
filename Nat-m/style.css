@@ -13,13 +13,12 @@
   margin: 0 125px;
 }
 
-.main-menu li {
-  margin-left: 50px;
-}
-
 .main-menu {
   display: flex;
   list-style: none;
+}
+.main-menu li {
+  margin-left: 50px;
 }
 
 a {
@@ -79,15 +78,6 @@ a {
     transform: translate(-50%, -50%);
   }
 }
-.modal-btn {
-  padding: 10px 14px;
-  font-size: 18px;
-  margin: 100px auto;
-  display: block;
-  min-width: 150px;
-  cursor: pointer;
-}
-
 .modal-container {
   display: none;
   visibility: hidden;
@@ -115,7 +105,7 @@ a {
 }
 
 .modal {
-  opacity: 0;
+  /*opacity: 0;*/
   width: 95%;
   max-width: 500px;
   min-width: 300px;
@@ -124,18 +114,11 @@ a {
   background: #fff;
   border-radius: 5px;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   animation: moveIn 0.4s forwards;
-}
-
-.modal-container.active .modal {
-  opacity: 1;
-  transform: translate(-50%, -100px);
-  transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
-  animation: moveOut 0.4s forwards; /* apparition de la modal après l'overlay à l'ouverture */
 }
 
 .close-modal {
@@ -239,4 +222,270 @@ a {
   src: url("assets/fonts/Space_Mono/SpaceMono-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
+}
+.single-post-container {
+  background-color: #f6f6f6;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.post-content {
+  margin-left: 125px;
+  margin-right: 125px;
+  margin-top: 30px;
+}
+
+.first-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.title_ref {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+/*titre de la publication */
+.post-title {
+  font-family: "Space_Mono";
+  font-style: italic;
+  font-weight: 500;
+  text-transform: uppercase; /* Transforme le texte en lettres majuscules */
+  font-size: 66px;
+}
+
+.line-break-title {
+  line-height: 0.9;
+}
+
+/* image miniature de la publication */
+.post-thumbnail img {
+  -o-object-fit: cover;
+     object-fit: cover; /* permet le controle des dimension et de la position des images dans le conteneur */
+  width: 563px;
+  height: 844px;
+  width: 100%;
+}
+
+.post-thumbnail {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.title_ref {
+  border-bottom: 1px solid black;
+  margin-right: 10px;
+  width: 100%;
+  margin-left: 50px;
+}
+
+.ref {
+  font-family: "Space_mono";
+  font-size: 14px;
+  margin-bottom: 39px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-transform: uppercase; /* Transforme le texte en lettres majuscules */
+}
+
+.second-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  border-bottom: 1px solid black;
+  height: 117px;
+  margin-left: 50px;
+}
+
+.CTA {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 96px;
+  padding: 30px 0 30px 0;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 272px;
+  height: 50px;
+  border-radius: 2px;
+  background-color: #D8D8D8;
+  transition: transform 0.3s ease;
+}
+
+.contact-button:hover {
+  background-color: black;
+  font-weight: bold;
+  transform: scale(1.1);
+  color: white;
+}
+
+.contact-button.active {
+  transform: translate(10px, 10px);
+}
+
+/* navigation des photos */
+.photo-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  position: relative;
+}
+
+/* Réference numero dans la modale*/
+.number-ref {
+  text-transform: uppercase;
+}
+
+/* Styles pour les miniatures des photos */
+.mini-thumbnail {
+  display: none;
+  width: 81px;
+  height: 71px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrow-thumbnail:hover .mini-thumbnail {
+  display: block;
+}
+
+/* Styles spécifiques aux flèches */
+.arrow-thumbnail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 85px;
+}
+
+.custom-prev-link, .custom-next-link {
+  text-decoration: none;
+}
+
+.titre p {
+  font-family: "Space_mono";
+  font-size: 18px;
+  margin-left: 50px;
+}
+
+.double-photos {
+  align-items: center;
+  justify-content: space-between;
+  margin: 50px 0;
+}
+
+.thumbnail-container {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  margin: 40px 140px;
+  grid-gap: 20px;
+}
+
+.thumbnail img {
+  height: 595px;
+  width: 564px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.thumbnail {
+  position: relative;
+}
+
+.thumbnail-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail:hover .thumbnail-hover {
+  opacity: 1;
+}
+
+.thumbnail-hover__overlay {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.thumbnail-hover__eye {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 50px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail-hover__expand {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 50px;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail-hover__eye:hover, .thumbnail-hover__expand:hover {
+  transform: scale(1.1);
+}
+
+.thumbnail-hover__eye img {
+  width: 46px;
+  height: 31px;
+}
+
+.thumbnail-hover__expand img {
+  width: 34px;
+  height: 34px;
+}
+
+.thumbnail-hover__info {
+  font-family: "Space_mono";
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.thumbnail-hover__category span {
+  color: white !important;
 }/*# sourceMappingURL=style.css.map */

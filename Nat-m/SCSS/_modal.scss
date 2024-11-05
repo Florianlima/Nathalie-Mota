@@ -17,14 +17,6 @@
 }
 
 
-.modal-btn {
-    padding: 10px 14px;
-    font-size: 18px;
-    margin: 100px auto;
-    display: block;
-    min-width: 150px;
-    cursor: pointer;
-}
 
 .modal-container {
     display: none;
@@ -54,7 +46,7 @@
 }
 
 .modal {
-    opacity: 0;
+    /*opacity: 0;*/
     width: 95%;
     max-width: 500px;
     min-width: 300px;
@@ -63,18 +55,11 @@
     background: #fff;
     border-radius: 5px;
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: opacity 0.4s ease-out, transform 0.4s ease-out;
     animation: moveIn 0.4s forwards;
-}
-
-.modal-container.active .modal {
-    opacity: 1;
-    transform: translate(-50%, -100px);
-    transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out;
-    animation: moveOut 0.4s forwards;    /* apparition de la modal après l'overlay à l'ouverture */
 }
 
 .close-modal {

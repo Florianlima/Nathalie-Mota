@@ -1,0 +1,113 @@
+.titre p{
+    font-family: 'Space_mono';
+    font-size: 18px;
+    margin-left: 50px;
+}
+
+.double-photos {
+    align-items: center;
+    justify-content: space-between;
+    margin: 50px 0;
+}
+
+.thumbnail-container {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    margin: 40px 140px;
+    grid-gap: 20px;
+}
+
+.thumbnail img {
+    height: 595px;
+    width: 564px;
+    width: 100%;
+    object-fit: cover; 
+}
+
+
+.thumbnail {
+    position: relative; 
+}
+
+.thumbnail-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5); 
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
+}
+
+.thumbnail:hover .thumbnail-hover {
+    opacity: 1; 
+}
+
+.thumbnail-hover__overlay {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.thumbnail-hover__eye {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+.thumbnail-hover__expand{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.thumbnail-hover__eye:hover, .thumbnail-hover__expand:hover {
+    transform: scale(1.1); 
+}
+
+.thumbnail-hover__eye img {
+    width: 46px;
+    height: 31px;
+}
+.thumbnail-hover__expand img {
+    width: 34px;
+    height: 34px;
+}
+
+.thumbnail-hover__info {
+    font-family: 'Space_mono';
+    display: flex;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white; 
+    padding: 10px;
+    border-radius: 5px;
+    
+}
+
+.thumbnail-hover__category span {
+    color: white !important;
+}
+

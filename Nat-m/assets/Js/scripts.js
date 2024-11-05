@@ -33,3 +33,45 @@ document.addEventListener("DOMContentLoaded", function () {
         modalContainer.classList.toggle("active");
     }
 });
+
+// Relie la modale de contact au bouton sur le post ACF//
+document.addEventListener("DOMContentLoaded", function () {
+    const contactTriggerCPT = document.querySelector(".contact-button");
+
+    // Ajoute un écouteur d'événements pour le bouton de contact sur le post ACF//
+    if (contactTriggerCPT) {
+        contactTriggerCPT.addEventListener("click", toggleModalCPT);
+    }
+});
+
+// Fonction pour le bouton de contact sur le post ACF//
+function toggleModalCPT() {
+    // permet d'afficher ou cacher la modale de contact//
+    modalContainer.classList.toggle("active");
+    console.log("Bouton contact cliqué !");
+}
+
+// Pour que les titres de plusieurs mots aillent à la ligne//
+const lineBreakTitles = document.querySelectorAll(".line-break-title");
+lineBreakTitles.forEach(function(title) {
+    const words = title.textContent.split(" ");
+    // Remplacer les espaces par des sauts de ligne dans le titre//
+    title.innerHTML = words.join("<br>");
+});
+
+// Permet de préremplir automatiquement le champ REF.PHOTO dans la modale de contact//
+const contactButton = document.querySelector('.contact-button');
+const modalRefField = document.querySelector('input[name="your-subject"]'); 
+
+if (contactButton && modalRefField) {
+    contactButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Récupére la référence de la photo depuis l'élément post-reference//
+        const referenceElement = document.querySelector('.post-reference');
+        const reference = referenceElement ? referenceElement.textContent.trim().replace('Référence : ', '') : '';
+
+        // Permet de préremplir le champ REF.PHOTO dans la modale de contact//
+        modalRefField.value = reference;
+    });
+}

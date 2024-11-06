@@ -1,32 +1,39 @@
-.titre p{
-    font-family: 'Space_mono';
-    font-size: 18px;
-    margin-left: 50px;
+.titre {
+    p {
+        font-family: 'Space_mono';
+        font-size: 18px;
+        margin-left: 50px;
+    }
 }
 
 .double-photos {
     align-items: center;
     justify-content: space-between;
     margin: 50px 0;
+    width: 100%;
 }
 
 .thumbnail-container {
     display: grid;
     grid-template-columns: repeat(2, 2fr);
-    margin: 40px 140px;
+    margin: 40px 50px;
     grid-gap: 20px;
+    width: 97%; /* à vérifier */
 }
-
-.thumbnail img {
-    height: 595px;
-    width: 564px;
-    width: 100%;
-    object-fit: cover; 
-}
-
 
 .thumbnail {
-    position: relative; 
+    position: relative;
+
+    img {
+        height: 595px;
+        width: 564px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    &:hover .thumbnail-hover {
+        opacity: 1;
+    }
 }
 
 .thumbnail-hover {
@@ -38,76 +45,103 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5); 
-    opacity: 0; 
-    transition: opacity 0.3s ease; 
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &__overlay {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    &__eye {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 50px;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            width: 46px;
+            height: 31px;
+        }
+    }
+
+    &__expand {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 46px;
+        height: 50px;
+        margin: 0 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            width: 34px;
+            height: 34px;
+        }
+    }
+
+    &__info {
+        font-family: 'Space_mono';
+        width: 90%;
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+        color: white !important;
+        padding: 10px;
+        border-radius: 5px;
+        justify-content: space-between;
+        text-transform: uppercase;
+    }
+
+    &__category {
+        span a {
+            color: white !important;
+        }
+    }
 }
 
-.thumbnail:hover .thumbnail-hover {
-    opacity: 1; 
-}
-
-.thumbnail-hover__overlay {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.thumbnail-hover__eye {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+.all-photos {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 50px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    margin-bottom: 50px;
 }
-.thumbnail-hover__expand{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    border-radius: 100%;
+
+.all-photos-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
+    width: 272px;
     height: 50px;
-    margin: 0 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
+    border-radius: 2px;
+    background-color: #D8D8D8;
+    transition: transform 0.3s ease; /* Animation de transition au survol */
 
-.thumbnail-hover__eye:hover, .thumbnail-hover__expand:hover {
-    transform: scale(1.1); 
+    &:hover {
+        background-color: black;
+        font-weight: bold;
+        transform: scale(1.1); /* Effet de mise à l'échelle au survol */
+        color: white;
+    }
 }
-
-.thumbnail-hover__eye img {
-    width: 46px;
-    height: 31px;
-}
-.thumbnail-hover__expand img {
-    width: 34px;
-    height: 34px;
-}
-
-.thumbnail-hover__info {
-    font-family: 'Space_mono';
-    display: flex;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: white; 
-    padding: 10px;
-    border-radius: 5px;
-    
-}
-
-.thumbnail-hover__category span {
-    color: white !important;
-}
-

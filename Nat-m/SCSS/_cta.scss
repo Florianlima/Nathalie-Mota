@@ -13,8 +13,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 96px; 
-    padding: 30px 0 30px 0; 
+    gap: 96px;
+    padding: 30px 0 30px 0;
+    font-family: 'Poppins';
+    font-size: 14px;
 }
 
 .contact-button {
@@ -25,44 +27,45 @@
     height: 50px;
     border-radius: 2px;
     background-color: #D8D8D8;
-    transition: transform 0.3s ease; 
+    transition: transform 0.3s ease;
+    font-size: 12px;
+    text-transform: none;
+
+    &:hover {
+        background-color: black;
+        font-weight: bold;
+        transform: scale(1.1);
+        color: white;
+    }
+
+    &.active {
+        transform: translate(10px, 10px);
+    }
 }
 
-.contact-button:hover {
-    background-color: black;
-    font-weight: bold;
-    transform: scale(1.1); 
-    color: white;
-}
-
-.contact-button.active {
-    transform: translate(10px, 10px); 
-}
-
-/* navigation des photos */
-
+/* Navigation des photos */
 .photo-navigation {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end; 
+    align-items: flex-end;
     gap: 30px;
-    position: relative; 
+    position: relative;
 }
 
-/* Réference numero dans la modale*/
+/* Référence numéro dans la modale */
 .number-ref {
-    text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 /* Styles pour les miniatures des photos */
 .mini-thumbnail {
-    display: none; 
+    display: none;
     width: 81px;
     height: 71px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); 
+    transform: translate(-50%, -50%);
 }
 
 .arrow-thumbnail:hover .mini-thumbnail {
@@ -73,11 +76,11 @@
 .arrow-thumbnail {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     padding-top: 85px;
 }
 
-.custom-prev-link, .custom-next-link {
-    text-decoration: none; 
+.custom-prev-link,
+.custom-next-link {
+    text-decoration: none;
 }
-

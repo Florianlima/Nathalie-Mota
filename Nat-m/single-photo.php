@@ -86,7 +86,7 @@
                 </div>
             </div>
             
-            <!-- Affiche l'image à la une (thumbnail) de la photo -->
+            
             <?php if (has_post_thumbnail()) : ?>
                 <div class="post-thumbnail">
                     <?php the_post_thumbnail(); ?>
@@ -95,7 +95,7 @@
             
         </div>
 
-        <!-- Affiche le contenu principal de la photo -->
+       
         <div class="post-text">
             <?php the_content(); ?>
         </div>
@@ -117,7 +117,7 @@
 	?>
 
 	<?php if (!empty($prev_post)) : ?>
-		<!-- Lien pour la photo précédente -->
+		
 		<a href="<?php echo esc_url(get_permalink($prev_post->ID)); ?>" class="arrow-thumbnail custom-prev-link">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/arrow-left.png" class="arrow" data-direction="previous" alt="Previous">
 			<?php echo get_the_post_thumbnail($prev_post->ID, 'thumbnail', array('class' => 'mini-thumbnail')); ?>
@@ -125,7 +125,7 @@
 	<?php endif; ?>
 
 	<?php if (!empty($next_post)) : ?>
-		<!-- Lien pour la photo suivante -->
+		
 		<a href="<?php echo esc_url(get_permalink($next_post->ID)); ?>" class="arrow-thumbnail custom-next-link">
 			<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/arrow-right.png" class="arrow" data-direction="next" alt="Next">
 			<?php echo get_the_post_thumbnail($next_post->ID, 'thumbnail', array('class' => 'mini-thumbnail')); ?>
@@ -156,11 +156,11 @@
 		$first_category = 'categorie-par-defaut';
 	}
 
-	// Arguments pour la requête des photos apparentées//
+	
 	$args = array(
 		'post_type' => 'photo',
-		'post__not_in' => array(get_the_ID()), // Exclut la photo actuelle de la liste//
-		'posts_per_page' => 2, // Limite le nombre de photos à afficher à 2//
+		'post__not_in' => array(get_the_ID()), 
+		'posts_per_page' => 2, 
 		'tax_query' => array(
 			array(
 				'taxonomy' => 'categorie',
@@ -170,16 +170,14 @@
 		),
 	);
 
-	// Initialise la requête WP_Query//
+	
 	$query = new WP_Query($args);
 
-	/*// Stocke la requête pour une utilisation ultérieure si nécessaire//
-	global $query_lightbox;
-	$query_lightbox = $query;*/
+	
 	?>
 
 	<?php
-	// Boucle pour afficher les photos apparentées
+	
 	while ($query->have_posts()) : $query->the_post(); ?>
 		<div class="thumbnail">
 			<?php

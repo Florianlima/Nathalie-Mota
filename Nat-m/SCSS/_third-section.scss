@@ -112,36 +112,15 @@
         border-radius: 5px;
         justify-content: space-between;
         text-transform: uppercase;
+        pointer-events: none;
     }
 
     &__category {
         span a {
             color: white !important;
+            pointer-events: none;
         }
     }
 }
 
-.all-photos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-}
 
-.all-photos-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 272px;
-    height: 50px;
-    border-radius: 2px;
-    background-color: #D8D8D8;
-    transition: transform 0.3s ease; /* Animation de transition au survol */
-
-    &:hover {
-        background-color: black;
-        font-weight: bold;
-        transform: scale(1.1); /* Effet de mise à l'échelle au survol */
-        color: white;
-    }
-}

@@ -106,15 +106,16 @@ a {
 
 .modal {
   /*opacity: 0;*/
-  width: 95%;
+  /*width: 95%;
   max-width: 500px;
-  min-width: 300px;
+  min-width: 300px;*/
+  width: 597px;
   height: 769px;
   border: 5px solid black;
   background: #fff;
   border-radius: 5px;
   position: absolute;
-  top: 25%;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: opacity 0.4s ease-out, transform 0.4s ease-out;
@@ -148,6 +149,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 640px;
 }
 
 #wpcf7-f30-o1 {
@@ -175,6 +177,7 @@ a {
   height: 40px;
   width: 263px;
   border: 2px solid #B8BBC2;
+  text-transform: uppercase;
 }
 .wpcf7-form-control.wpcf7-textarea {
   border-radius: 7px;
@@ -196,6 +199,10 @@ a {
 }
 
 .wpcf7-response-output {
+  margin-top: -20px;
+}
+
+.wpcf7 form .wpcf7-response-output {
   margin-top: -20px;
 }
 
@@ -231,7 +238,7 @@ a {
 }
 
 .post-content {
-  margin-left: 125px;
+  /*margin-left: 125px; à vérifier */
   margin-right: 125px;
   margin-top: 30px;
 }
@@ -240,6 +247,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-left: 100px;
 }
 
 .title_ref {
@@ -302,7 +310,7 @@ a {
   margin-bottom: 60px;
   border-bottom: 1px solid black;
   height: 117px;
-  margin-left: 50px;
+  margin-left: 150px;
 }
 
 .CTA {
@@ -389,7 +397,8 @@ a {
   align-items: center;
   justify-content: space-between;
   margin: 50px 0;
-  width: 100%;
+  /*width: 100%; à vérifier */
+  margin-left: 100px;
 }
 
 .thumbnail-container {
@@ -402,9 +411,10 @@ a {
 
 .thumbnail {
   position: relative;
+  aspect-ratio: 564/495;
 }
 .thumbnail img {
-  height: 595px;
+  height: 100%;
   width: 564px;
   width: 100%;
   -o-object-fit: cover;

@@ -6,6 +6,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        height: 640px;
     }
 }
 
@@ -38,6 +39,7 @@
         height: 40px;
         width: 263px;
         border: 2px solid #B8BBC2;
+        text-transform: uppercase;
     }
 
     &.wpcf7-textarea {
@@ -62,5 +64,9 @@
 }
 
 .wpcf7-response-output {
+    margin-top: -20px;
+}
+
+.wpcf7 form .wpcf7-response-output {
     margin-top: -20px;
 }

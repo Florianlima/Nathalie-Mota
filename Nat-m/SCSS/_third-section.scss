@@ -10,7 +10,8 @@
     align-items: center;
     justify-content: space-between;
     margin: 50px 0;
-    width: 100%;
+    /*width: 100%; à vérifier */
+    margin-left: 100px;
 }
 
 .thumbnail-container {
@@ -23,9 +24,10 @@
 
 .thumbnail {
     position: relative;
+    aspect-ratio: 564/495;
 
     img {
-        height: 595px;
+        height: 100%;
         width: 564px;
         width: 100%;
         object-fit: cover;

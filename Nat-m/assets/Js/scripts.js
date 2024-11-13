@@ -73,3 +73,56 @@ if (contactButton && modalRefField) {
         modalRefField.value = reference;
     });
 }
+
+
+//---------------------- Requete AJAX ------------------------------//
+
+(function ($) {
+    $(document).ready(function () {
+        let currentPage = 2;
+        
+    
+        $('#load-more-btn').on('click', function () {
+            console.log('Bouton "Charger plus" cliqué');
+            let button = $(this);
+            let postId = button.data('postid');
+            let nonce = button.data('nonce');
+            let action = button.data('action');
+            let ajaxurl = button.data('ajaxurl');
+
+            let data = {
+                action: action,
+                nonce: nonce,
+                page: currentPage,
+                postid: postId,
+            };
+
+            console.log("Données envoyées", data);
+
+            fetch(ajaxurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Cache-Control': 'no-cache'
+                },
+                body: new URLSearchParams(data),
+            })
+            .then(response => response.json())
+            .then(responseData => {
+                console.log("Réponse reçue", responseData);
+
+                if (responseData.success && responseData.data.html) {
+                    $('#photos-list').append(responseData.data.html);
+                    currentPage++;
+                }
+
+                if (!responseData.data.post_next_page) {
+                    $('#load-more-btn').hide();
+                }
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+            });
+        });
+    });
+})(jQuery);

@@ -77,52 +77,48 @@ if (contactButton && modalRefField) {
 
 //---------------------- Requete AJAX ------------------------------//
 
-(function ($) {
-    $(document).ready(function () {
-        let currentPage = 2;
-        
-    
-        $('#load-more-btn').on('click', function () {
-            console.log('Bouton "Charger plus" cliqué');
-            let button = $(this);
-            let postId = button.data('postid');
-            let nonce = button.data('nonce');
-            let action = button.data('action');
-            let ajaxurl = button.data('ajaxurl');
 
-            let data = {
-                action: action,
-                nonce: nonce,
-                page: currentPage,
-                postid: postId,
-            };
 
-            console.log("Données envoyées", data);
+document.addEventListener('DOMContentLoaded', function () {
 
-            fetch(ajaxurl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Cache-Control': 'no-cache'
-                },
-                body: new URLSearchParams(data),
-            })
-            .then(response => response.json())
-            .then(responseData => {
-                console.log("Réponse reçue", responseData);
+    const button = document.getElementById('load-more-btn');
 
-                if (responseData.success && responseData.data.html) {
-                    $('#photos-list').append(responseData.data.html);
-                    currentPage++;
-                }
+    button.addEventListener('click', function () {
+        console.log('Bouton "Charger plus" cliqué');
+        const ajaxurl = button.getAttribute('data-ajaxurl');
 
-                if (!responseData.data.post_next_page) {
-                    $('#load-more-btn').hide();
-                }
-            })
-            .catch(error => {
-                console.error('Fetch error:', error);
-            });
+        const data = {
+            action: button.getAttribute('data-action'),
+            nonce:  button.getAttribute('data-nonce'),
+            postid: button.getAttribute('data-postid'),
+            page: 2,
+        };
+
+        console.log("Données envoyées", data.toString());
+
+        fetch(ajaxurl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Cache-Control': 'no-cache'
+            },
+            body: new URLSearchParams(data)
+        })
+        .then(response => response.json())
+        .then(responseData => {
+            console.log("Réponse reçue", responseData);
+
+            if (responseData.success && responseData.data.html) {
+                document.getElementById('photos-list').insertAdjacentHTML('beforeend', responseData.data.html);
+            }
+
+            if (!responseData.data.post_next_page) {
+                button.style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('Erreur Fetch:', error);
         });
     });
-})(jQuery);
+});
+

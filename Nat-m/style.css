@@ -542,4 +542,9 @@ a {
   font-weight: bold;
   transform: scale(1.1);
   color: white;
+}
+
+.main-page {
+  margin-left: 107px;
+  margin-right: 150px;
 }/*# sourceMappingURL=style.css.map */

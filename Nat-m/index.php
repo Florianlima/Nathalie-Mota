@@ -7,25 +7,31 @@
 $random_image_args = array(
     'post_type' => 'photo',     
     'posts_per_page' => 1,      
-    'orderby' => 'rand'         
+    'orderby' => 'rand',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'format',
+            'field' => 'slug',
+            'terms' => 'paysage', 
+        ),
+    ),
 );
-
 
 $random_image_query = new WP_Query($random_image_args);
 
-
 if ($random_image_query->have_posts()) {
-    
     while ($random_image_query->have_posts()) {
         $random_image_query->the_post();
-        
         $background_image_url = get_the_post_thumbnail_url(null, 'full');
+        
+        
+        echo '<div style="background-image: url(' . esc_url($background_image_url) . ');"></div>';
     }
 
-    
     wp_reset_postdata();
 }
 ?>
+
 
 <!-- Section du héros avec l'image de fond aléatoire -->
 <div class="hero" style="background-image: url('<?php echo esc_url($background_image_url); ?>');">

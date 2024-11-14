@@ -100,7 +100,7 @@
 
             <div class="sort-by-container">
                 <select id="sort-by" name="sort-by" class="custom-select">
-                    <option value="" disabled selected>Trier par</option>
+                    <option value=""selected>Trier par</option>
                     <option value="DESC">Plus récent</option>
                     <option value="ASC">Plus ancien</option>
                 </select>

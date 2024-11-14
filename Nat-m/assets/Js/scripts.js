@@ -112,9 +112,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('photos-list').insertAdjacentHTML('beforeend', responseData.data.html);
             }
 
-            if (!responseData.data.post_next_page) {
+           /* if (!responseData.data.post_next_page) {
                 button.style.display = 'none';
-            }
+            }*/
         })
         .catch(error => {
             console.error('Erreur Fetch:', error);

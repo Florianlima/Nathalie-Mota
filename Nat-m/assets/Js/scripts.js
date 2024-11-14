@@ -75,7 +75,7 @@ if (contactButton && modalRefField) {
 }
 
 
-//---------------------- Requete AJAX ------------------------------//
+//---------------------- Requete AJAX Btn------------------------------//
 
 
 
@@ -121,4 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+//---------------------- Requete AJAX Filters------------------------------//
 

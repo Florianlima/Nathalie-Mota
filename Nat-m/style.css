@@ -501,13 +501,13 @@ a {
 }
 
 .hero {
-  width: 100%;
+  width: 100vw;
   height: 962px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  align-items: center;
   margin-bottom: 50px;
+  margin-left: -8px;
 }
 
 .hero img {
@@ -547,4 +547,35 @@ a {
 .main-page {
   margin-left: 107px;
   margin-right: 150px;
+}
+
+.filters-photos {
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 154px;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+}
+
+.filters select,
+#sort-by {
+  width: 260px;
+  height: 43px;
+  border-radius: 8px;
+  border-color: #B8BBC2;
+  font-family: "Poppins";
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-width: 2px;
+  background-color: #ffffff;
+  border-top: 1px solid #B8BBC2;
+  padding: 10px;
+}
+
+.sort-by-container {
+  margin-right: -11px;
 }/*# sourceMappingURL=style.css.map */

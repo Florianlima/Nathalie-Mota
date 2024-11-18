@@ -52,7 +52,7 @@ function toggleModalCPT() {
 
 
 const lineBreakTitles = document.querySelectorAll(".line-break-title");
-lineBreakTitles.forEach(function(title) {
+lineBreakTitles.forEach(function (title) {
     const words = title.textContent.split(" ");
     title.innerHTML = words.join("<br>");
 });
@@ -75,24 +75,84 @@ if (contactButton && modalRefField) {
 }
 
 
-//---------------------- Requete AJAX Btn------------------------------//
+//---------------------- Requete AJAX ------------------------------//
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    let currentPage = 1;
+
+    document.querySelectorAll('.sel .label').forEach(label => {
+        label.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const wrapper = label.parentElement;
+            toggleOptions(wrapper.id);
+        });
+    });
+
+    document.body.addEventListener('click', function (e) {
+        document.querySelectorAll('.sel').forEach(wrapper => {
+            wrapper.classList.remove('open');
+        });
+    });
+
+    function toggleOptions(wrapperId) {
+        const wrapper = document.getElementById(wrapperId);
+        document.querySelectorAll('.sel').forEach(wrapper => {
+            if (wrapper.id !== wrapperId) {
+                wrapper.classList.remove('open');
+            }
+        });
+        wrapper.classList.toggle('open');
+    }
+
+    window.selectOption = function (wrapperId, value) {
+        const wrapper = document.getElementById(wrapperId);
+        const label = wrapper.querySelector('.label');
+        const options = wrapper.querySelectorAll('.option');
+
+        options.forEach(option => {
+            if (option.dataset.value === value) {
+                option.classList.add('selected');
+                label.textContent = option.textContent;
+            } else {
+                option.classList.remove('selected');
+            }
+        });
+
+        const input = document.getElementById(wrapperId.replace('-wrapper', ''));
+        input.value = value;
+        wrapper.classList.remove('open');
+        updateFilters();
+    }
+
+    function updateFilters() {
+        const category = document.getElementById('photo-category').value;
+        const format = document.getElementById('format').value;
+        const order = document.getElementById('sort-by').value;
+        currentPage = 1;
+        fetchPhotos(category, format, order, true);
+    }
 
     const button = document.getElementById('load-more-btn');
-
     button.addEventListener('click', function () {
-        console.log('Bouton "Charger plus" cliqué');
-        const ajaxurl = button.getAttribute('data-ajaxurl');
+        const category = document.getElementById('photo-category').value;
+        const format = document.getElementById('format').value;
+        const order = document.getElementById('sort-by').value;
+        fetchPhotos(category, format, order, false);
+    });
 
-        const data = {
-            action: button.getAttribute('data-action'),
-            nonce:  button.getAttribute('data-nonce'),
-            postid: button.getAttribute('data-postid'),
-            page: 2,
-        };
+    function fetchPhotos(category, format, order, replace = false) {
+        const ajaxurl = button.getAttribute('data-ajaxurl');
+        const data = new URLSearchParams();
+        data.append('action', button.getAttribute('data-action'));
+        data.append('nonce', button.getAttribute('data-nonce'));
+        data.append('postid', button.getAttribute('data-postid'));
+        data.append('page', currentPage);
+
+        if (category) data.append('photo_category', category);
+        if (format) data.append('format', format);
+        if (order) data.append('order', order);
 
         console.log("Données envoyées", data.toString());
 
@@ -102,25 +162,34 @@ document.addEventListener('DOMContentLoaded', function () {
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Cache-Control': 'no-cache'
             },
-            body: new URLSearchParams(data)
+            body: data
         })
-        .then(response => response.json())
-        .then(responseData => {
-            console.log("Réponse reçue", responseData);
+            .then(response => response.json())
+            .then(responseData => {
+                console.log("Réponse reçue", responseData);
 
-            if (responseData.success && responseData.data.html) {
-                document.getElementById('photos-list').insertAdjacentHTML('beforeend', responseData.data.html);
-            }
+                if (responseData.success && responseData.data.html) {
+                    const photosList = document.getElementById('photos-list');
+                    if (replace) {
+                        photosList.innerHTML = responseData.data.html;
+                    } else {
+                        photosList.insertAdjacentHTML('beforeend', responseData.data.html);
+                    }
+                    currentPage++;
+                }
 
-           /* if (!responseData.data.post_next_page) {
-                button.style.display = 'none';
-            }*/
-        })
-        .catch(error => {
-            console.error('Erreur Fetch:', error);
-        });
-    });
+                if (!responseData.data.post_next_page) {
+                    button.style.display = 'none';
+                } else {
+                    button.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                console.error('Erreur Fetch:', error);
+            });
+    }
 });
 
-//---------------------- Requete AJAX Filters------------------------------//
+
+
 

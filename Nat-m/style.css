@@ -557,14 +557,13 @@ a {
   width: -moz-max-content;
   width: max-content;
 }
-
-.filters {
+.filters-photos .filters, .filters-photos .sort {
   display: flex;
   gap: 15px;
 }
-
-.filters .tt-select,
-#sort-by-wrapper {
+.filters-photos .filters .tt-select,
+.filters-photos .filters #sort-by-wrapper, .filters-photos .sort .tt-select,
+.filters-photos .sort #sort-by-wrapper {
   width: 260px;
   height: 43px;
   border-radius: 8px;
@@ -578,8 +577,7 @@ a {
   padding: 10px;
   position: relative;
 }
-
-.label {
+.filters-photos .filters .label, .filters-photos .sort .label {
   display: flex;
   justify-content: space-between;
   /*width: 100%;*/
@@ -593,19 +591,18 @@ a {
   padding-left: 13px;
   padding-right: 13px;
 }
-.label .fa-chevron-down {
+.filters-photos .filters .label .fa-chevron-down, .filters-photos .sort .label .fa-chevron-down {
   font-size: 12px;
   color: #000;
 }
-.label::after {
+.filters-photos .filters .label::after, .filters-photos .sort .label::after {
   font-family: "FontAwesome";
   position: absolute;
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
 }
-
-.options {
+.filters-photos .filters .options, .filters-photos .sort .options {
   display: none;
   position: absolute;
   background-color: #fff;
@@ -617,17 +614,18 @@ a {
   overflow: hidden;
   margin-left: -7px;
 }
-.options .option {
+.filters-photos .filters .options .option, .filters-photos .sort .options .option {
   padding: 10px;
   cursor: pointer;
+  min-height: 25px;
 }
-.options .option:hover {
+.filters-photos .filters .options .option:hover, .filters-photos .sort .options .option:hover {
   background-color: #FFD6D6;
 }
-.options .option:active {
+.filters-photos .filters .options .option:active, .filters-photos .sort .options .option:active {
   background-color: #FE5858;
 }
-.options .option.selected {
+.filters-photos .filters .options .option.selected, .filters-photos .sort .options .option.selected {
   background-color: #E00000;
   color: #fff;
 }
@@ -642,4 +640,5 @@ a {
 
 .sel.open .label .fa-chevron-down {
   transform: rotate(180deg);
+  transition: ease-in-out 0.5s;
 }/*# sourceMappingURL=style.css.map */

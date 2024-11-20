@@ -53,7 +53,7 @@
                 <div class="tt-select sel" id="photo-category-wrapper">
                     <div class="label">Catégories<i class="fas fa-chevron-down"></i></div>
                     <div class="options" hidden>
-                        <div class="option" data-value="" onclick="selectOption('photo-category-wrapper', '')">Toutes les catégories</div>
+                        <div class="option" data-value="" onclick="selectOption('photo-category-wrapper', '')"></div>
                         <?php
                         $photo_categories = get_terms(array(
                             'taxonomy' => 'categorie',
@@ -75,7 +75,7 @@
                 <div class="tt-select sel" id="format-wrapper">
                     <div class="label">Formats<i class="fas fa-chevron-down"></i></div>
                     <div class="options" hidden>
-                        <div class="option" data-value="" onclick="selectOption('format-wrapper', '')">Tous les formats</div>
+                        <div class="option" data-value="" onclick="selectOption('format-wrapper', '')"></div>
                         <?php
                         $formats = get_terms(array(
                             'taxonomy' => 'format',
@@ -95,16 +95,16 @@
                 </div>
             </div>
 
-            
+            <div class="sort">
                 <div class="tt-select sel" id="sort-by-wrapper">
                     <div class="label">Trier par<i class="fas fa-chevron-down"></i></div>
                     <div class="options" hidden>
-                    <div class="option" data-value="" onclick="selectOption('sort-by-wrapper', '')">Trier par</div>              
                         <div class="option" data-value="DESC" onclick="selectOption('sort-by-wrapper', 'DESC')">Plus récent</div>
                         <div class="option" data-value="ASC" onclick="selectOption('sort-by-wrapper', 'ASC')">Plus ancien</div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
 
         <input type="hidden" id="photo-category" value="">

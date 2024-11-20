@@ -80,7 +80,7 @@ if (contactButton && modalRefField) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    let currentPage = 1;
+    let currentPage = 2;
 
     document.querySelectorAll('.sel .label').forEach(label => {
         label.addEventListener('click', function (e) {
@@ -105,8 +105,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
         wrapper.classList.toggle('open');
     }
+    
 
-    window.selectOption = function (wrapperId, value) {
+    selectOption = function (wrapperId, value) {
         const wrapper = document.getElementById(wrapperId);
         const label = wrapper.querySelector('.label');
         const options = wrapper.querySelectorAll('.option');
@@ -114,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         options.forEach(option => {
             if (option.dataset.value === value) {
                 option.classList.add('selected');
-                label.textContent = option.textContent;
+                label.innerHTML = option.textContent+'<i class="fas fa-chevron-down"></i>';
             } else {
                 option.classList.remove('selected');
             }

@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php get_header(); ?>
 <main class="main-body">
 
     <?php
@@ -52,7 +51,7 @@
         <div class="filters-photos">
             <div class="filters">
                 <div class="tt-select sel" id="photo-category-wrapper">
-                    <div class="label">Catégories</div>
+                    <div class="label">Catégories<i class="fas fa-chevron-down"></i></div>
                     <div class="options" hidden>
                         <div class="option" data-value="" onclick="selectOption('photo-category-wrapper', '')">Toutes les catégories</div>
                         <?php
@@ -74,7 +73,7 @@
                 </div>
 
                 <div class="tt-select sel" id="format-wrapper">
-                    <div class="label">Formats</div>
+                    <div class="label">Formats<i class="fas fa-chevron-down"></i></div>
                     <div class="options" hidden>
                         <div class="option" data-value="" onclick="selectOption('format-wrapper', '')">Tous les formats</div>
                         <?php
@@ -96,10 +95,11 @@
                 </div>
             </div>
 
-            <div class="sort-by-container">
+            
                 <div class="tt-select sel" id="sort-by-wrapper">
-                    <div class="label">Trier par</div>
+                    <div class="label">Trier par<i class="fas fa-chevron-down"></i></div>
                     <div class="options" hidden>
+                    <div class="option" data-value="" onclick="selectOption('sort-by-wrapper', '')">Trier par</div>              
                         <div class="option" data-value="DESC" onclick="selectOption('sort-by-wrapper', 'DESC')">Plus récent</div>
                         <div class="option" data-value="ASC" onclick="selectOption('sort-by-wrapper', 'ASC')">Plus ancien</div>
                     </div>

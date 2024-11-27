@@ -194,3 +194,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const menuBurger = document.querySelector('.burgerBtn');
+    const fullscreenMenu = document.querySelector('.fullscreenMenu');
+    const menuLinks = document.querySelectorAll('.fullscreenMenu a');
+
+    menuBurger.addEventListener('click', function() {
+        menuBurger.classList.toggle('active');
+        fullscreenMenu.classList.toggle('open');
+        document.body.classList.toggle('no-scroll'); // Ajoutez cette ligne
+    });
+
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            menuBurger.classList.remove('active');
+            fullscreenMenu.classList.remove('open');
+            document.body.classList.remove('no-scroll'); // Ajoutez cette ligne
+        });
+    });
+});
+
+
+

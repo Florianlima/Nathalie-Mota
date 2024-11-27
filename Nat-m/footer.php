@@ -1,4 +1,6 @@
 <?php get_template_part('templates_parts/contact-modal'); ?>
+<?php get_template_part('templates_parts/lightbox'); ?>
+
 
 
 <?php wp_footer(); ?>

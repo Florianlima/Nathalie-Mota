@@ -45,6 +45,9 @@
 
 
     $query = new WP_Query($args);
+
+    global $query_lightbox;
+    $query_lightbox = $query;
     ?>
 
     <?php if ($query->have_posts()) : ?>

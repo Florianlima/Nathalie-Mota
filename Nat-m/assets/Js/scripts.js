@@ -3,7 +3,6 @@ const modalContainer = document.querySelector(".modal-container");
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const modalContainer = document.querySelector(".modal-container");
     const overlay = document.querySelector(".overlay");
     const modal = document.querySelector(".modal");
      const contactTrigger = document.querySelector(".menu-item-18 > a");
@@ -192,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+//---------------------- Menu Burger ------------------------------//
 
 
 

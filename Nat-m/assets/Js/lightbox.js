@@ -7,7 +7,11 @@ function Lightbox(photo_id) {
     lightbox.style.display = 'block';
     document.body.style.overflow = 'hidden';
 
+
+
     const images = lightbox.querySelectorAll('.thumbnail-lightbox');
+
+    console.log(images);
     images.forEach(image => {
         image.style.display = 'none';
         image.classList.remove('active');
@@ -55,7 +59,7 @@ function addExpandIconsListeners() {
     const expandIcons = document.querySelectorAll('.thumbnail-hover__expand');
     expandIcons.forEach(expandIcon => {
         expandIcon.addEventListener('click', (event) => {
-            event.stopPropagation();
+            /*event.stopPropagation();*/
             const photoId = expandIcon.closest('.thumbnail').dataset.id;
             Lightbox(photoId);
         });
@@ -81,7 +85,7 @@ function attachEvent(selector, eventType, callback) {
 
 // Fonction pour attacher les écouteurs d'événements
 document.addEventListener('DOMContentLoaded', function () {
-    
+
     function attachEvent(selector, eventType, callback) {
         const element = document.querySelector(selector);
         if (element) {
@@ -89,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    
+
     attachEvent('.lightbox__close', 'click', CacherLightbox);
     attachEvent('.lightbox__next', 'click', Imgsuivante);
     attachEvent('.lightbox__prev', 'click', Imgprécédente);

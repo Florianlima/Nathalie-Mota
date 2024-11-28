@@ -5,17 +5,20 @@ const modalContainer = document.querySelector(".modal-container");
 document.addEventListener("DOMContentLoaded", function () {
     const overlay = document.querySelector(".overlay");
     const modal = document.querySelector(".modal");
-     const contactTrigger = document.querySelector(".menu-item-18 > a");
-
-
-    contactTrigger.classList.add("modal-trigger");
-
-
-    contactTrigger.addEventListener("click", function (event) {
-        event.preventDefault();
-
-        toggleModal();
+     const contactTrigger = document.querySelectorAll(".menu-item-18 > a");
+     contactTrigger.forEach(contact => {
+        contact.addEventListener("click", function (event) {
+            event.preventDefault();
+            console.log('aurevoir')
+            toggleModal();
+        });
+        contact.classList.add("modal-trigger");
     });
+
+    
+
+
+    
 
     overlay.addEventListener("click", function (event) {
         event.preventDefault();
@@ -30,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function toggleModal() {
         modalContainer.classList.toggle("active");
+        
     }
 });
 
@@ -176,6 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         photosList.insertAdjacentHTML('beforeend', responseData.data.html);
                     }
                     currentPage++;
+                    addExpandIconsListeners();
                 }
 
                 if (!responseData.data.post_next_page) {

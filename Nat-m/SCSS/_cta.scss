@@ -1,86 +1,84 @@
-.second-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 60px;
-    border-bottom: 1px solid black;
-    height: 117px;
-    margin-left: 150px;
-}
-
-.CTA {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 96px;
-    padding: 30px 0 30px 0;
-    font-family: 'Poppins';
-    font-size: 14px;
-}
-
-.contact-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 272px;
-    height: 50px;
-    border-radius: 2px;
-    background-color: #D8D8D8;
-    transition: transform 0.3s ease;
-    font-size: 12px;
-    text-transform: none;
-
-    &:hover {
-        background-color: black;
-        font-weight: bold;
-        transform: scale(1.1);
-        color: white;
-    }
-
-    &.active {
-        transform: translate(10px, 10px);
-    }
-}
+$color_1: white;
+$font-family_1: 'Poppins';
+$background-color_1: #D8D8D8;
 
 /* Navigation des photos */
-.photo-navigation {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 30px;
-    position: relative;
-}
-
 /* Référence numéro dans la modale */
-.number-ref {
-    text-transform: uppercase;
-}
-
 /* Styles pour les miniatures des photos */
-.mini-thumbnail {
-    display: none;
-    width: 81px;
-    height: 71px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.arrow-thumbnail:hover .mini-thumbnail {
-    display: block;
-}
-
 /* Styles spécifiques aux flèches */
-.arrow-thumbnail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 85px;
+.second-section {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 60px;
+	border-bottom: 1px solid black;
+	height: 117px;
+	margin-left: 150px;
 }
-
-.custom-prev-link,
+.CTA {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 96px;
+	padding: 30px 0 30px 0;
+	font-family: $font-family_1;
+	font-size: 14px;
+}
+.contact-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 272px;
+	height: 50px;
+	border-radius: 2px;
+	background-color: $background-color_1;
+	transition: transform 0.3s ease;
+	font-size: 12px;
+	text-transform: none;
+	&: hover { background-color: black;
+	font-weight: bold;
+	transform: scale(1.1);
+	color: $color_1;
+}
+&.active {
+	transform: translate(10px, 10px);
+}
+} {
+	.photo-navigation {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 30px;
+		position: relative;
+	}
+}
+.number-ref {
+	text-transform: uppercase;
+}
+.mini-thumbnail {
+	display: none;
+	width: 81px;
+	height: 71px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.arrow-thumbnail {
+	&:hover {
+		.mini-thumbnail {
+			display: block;
+		}
+	}
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 85px;
+}
+.custom-prev-link {
+	text-decoration: none;
+}
 .custom-next-link {
-    text-decoration: none;
+	text-decoration: none;
 }

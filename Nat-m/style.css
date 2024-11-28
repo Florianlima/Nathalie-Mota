@@ -230,6 +230,8 @@ a {
   font-weight: normal;
   font-style: normal;
 }
+/*titre de la publication */
+/* image miniature de la publication */
 .single-post-container {
   background-color: #f6f6f6;
   margin: 0;
@@ -238,7 +240,6 @@ a {
 }
 
 .post-content {
-  /*margin-left: 125px; à vérifier */
   margin-right: 125px;
   margin-top: 30px;
 }
@@ -254,28 +255,22 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  border-bottom: 1px solid black;
+  margin-right: 10px;
+  width: 100%;
+  margin-left: 50px;
 }
 
-/*titre de la publication */
 .post-title {
   font-family: "Space_Mono";
   font-style: italic;
   font-weight: 500;
-  text-transform: uppercase; /* Transforme le texte en lettres majuscules */
+  text-transform: uppercase;
   font-size: 66px;
 }
 
 .line-break-title {
   line-height: 0.9;
-}
-
-/* image miniature de la publication */
-.post-thumbnail img {
-  -o-object-fit: cover;
-     object-fit: cover; /* permet le controle des dimension et de la position des images dans le conteneur */
-  width: 563px;
-  height: 844px;
-  width: 100%;
 }
 
 .post-thumbnail {
@@ -284,12 +279,12 @@ a {
   justify-content: flex-end;
   width: 100%;
 }
-
-.title_ref {
-  border-bottom: 1px solid black;
-  margin-right: 10px;
+.post-thumbnail img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 563px;
+  height: 844px;
   width: 100%;
-  margin-left: 50px;
 }
 
 .ref {
@@ -299,7 +294,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  text-transform: uppercase; /* Transforme le texte en lettres majuscules */
+  text-transform: uppercase;
 }
 
 .second-section {
@@ -536,7 +531,6 @@ a {
   font-family: "Space_Mono";
   margin-bottom: 50px;
 }
-
 #load-more-btn:hover {
   background-color: black;
   font-weight: bold;
@@ -743,9 +737,13 @@ a {
     padding-left: 50px;
   }
   /*********** MODAL DE CONTACT ***********/
+  .overlay {
+    left: 0;
+  }
   .modal {
     width: 286px;
-    height: 583px;
+    height: 720px;
+    margin-top: 21px;
   }
   .modal img {
     width: 300px;
@@ -770,7 +768,7 @@ a {
   .filters {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 0 !important;
   }
   .filters-photos {
     display: flex;
@@ -805,6 +803,15 @@ a {
     height: 30px !important;
     -o-object-fit: contain;
        object-fit: contain;
+  }
+  .lightbox__container img {
+    width: 100%;
+  }
+  .lightbox__next {
+    top: 590px;
+  }
+  .lightbox__prev {
+    top: 590px;
   }
   /*********** FOOTER ***********/
   .footer-menu {
@@ -946,7 +953,7 @@ a {
 
 .fullscreenMenu {
   position: fixed;
-  top: 100px;
+  top: 120px;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -958,6 +965,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 3;
 }
 
 .fullscreenMenu ul {
@@ -974,13 +982,13 @@ a {
 .fullscreenMenu ul li a {
   color: white;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 46px;
 }
 
 .fullscreenMenu.open {
   opacity: 1;
   visibility: visible;
-  z-index: 9999;
+  z-index: 1;
 }
 
 /* Styles pour le menu responsive */
@@ -989,12 +997,7 @@ a {
     display: block;
   }
   .site-navigation .main-menu {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    left: 0;
-    right: 0;
+    display: none;
   }
 }
 @media screen and (min-width: 601px) {

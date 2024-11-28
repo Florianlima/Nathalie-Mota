@@ -14,11 +14,11 @@
     border: none;
     font-family: 'Space_Mono';
     margin-bottom: 50px;
+    &:hover {
+        background-color:black;
+        font-weight: bold;
+        transform: scale(1.1); 
+        color: white;
+    }
 }
 
-#load-more-btn:hover {
-    background-color:black;
-    font-weight: bold;
-    transform: scale(1.1); 
-    color: white;
-}

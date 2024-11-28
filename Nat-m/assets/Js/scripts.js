@@ -3,10 +3,10 @@ const modalContainer = document.querySelector(".modal-container");
 
 
 document.addEventListener("DOMContentLoaded", function () {
-
+    const modalContainer = document.querySelector(".modal-container");
     const overlay = document.querySelector(".overlay");
     const modal = document.querySelector(".modal");
-    const contactTrigger = document.querySelector(".menu-item-18 > a");
+     const contactTrigger = document.querySelector(".menu-item-18 > a");
 
 
     contactTrigger.classList.add("modal-trigger");
@@ -203,14 +203,14 @@ document.addEventListener('DOMContentLoaded', function() {
     menuBurger.addEventListener('click', function() {
         menuBurger.classList.toggle('active');
         fullscreenMenu.classList.toggle('open');
-        document.body.classList.toggle('no-scroll'); // Ajoutez cette ligne
+        document.body.classList.toggle('no-scroll'); 
     });
 
     menuLinks.forEach(link => {
         link.addEventListener('click', function() {
             menuBurger.classList.remove('active');
             fullscreenMenu.classList.remove('open');
-            document.body.classList.remove('no-scroll'); // Ajoutez cette ligne
+            document.body.classList.remove('no-scroll'); 
         });
     });
 });

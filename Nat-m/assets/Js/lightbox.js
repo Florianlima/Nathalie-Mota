@@ -28,7 +28,7 @@ function CacherLightbox() {
     const lightbox = document.querySelector('.lightbox');
     lightbox.style.display = 'none';
 
-    // Rétablit le défilement de la page//
+    
     document.body.style.overflow = 'auto';
 }
 
@@ -80,7 +80,7 @@ function addHoverEventListeners() {
     });
 }
 
-// écouteur d'événement pour ouvrir la lightbox au clic sur l'icône d'agrandissement
+// ouvrir la lightbox au clic sur l'icône d'agrandissement
 const expandIcons = document.querySelectorAll('.thumbnail-hover__expand');
 expandIcons.forEach(expandIcon => {
     expandIcon.addEventListener('click', function (event) {

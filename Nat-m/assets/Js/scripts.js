@@ -153,13 +153,11 @@ document.addEventListener('DOMContentLoaded', function () {
         data.append('nonce', button.getAttribute('data-nonce'));
         data.append('postid', button.getAttribute('data-postid'));
         data.append('page', currentPage);
-
+    
         if (category) data.append('photo_category', category);
         if (format) data.append('format', format);
         if (order) data.append('order', order);
-
-        console.log("Données envoyées", data.toString());
-
+    
         fetch(ajaxurl, {
             method: 'POST',
             headers: {
@@ -170,19 +168,29 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(responseData => {
-                console.log("Réponse reçue", responseData);
-
                 if (responseData.success && responseData.data.html) {
                     const photosList = document.getElementById('photos-list');
+                    const lightboxContainer = document.querySelector('.lightbox__container');
+    
+                    // Ajouter les nouvelles miniatures
                     if (replace) {
                         photosList.innerHTML = responseData.data.html;
+                        lightboxContainer.innerHTML = responseData.data.html; // Réutilise le HTML en l'ajustant
                     } else {
                         photosList.insertAdjacentHTML('beforeend', responseData.data.html);
+                        lightboxContainer.insertAdjacentHTML('beforeend', responseData.data.html); // Ajoute les nouvelles miniatures
                     }
+    
+                    // Mise à jour des classes pour la Lightbox
+                    lightboxContainer.querySelectorAll('.thumbnail').forEach(thumbnail => {
+                        thumbnail.classList.remove('thumbnail'); // Retirer la classe originale
+                        thumbnail.classList.add('thumbnail-lightbox'); // Ajouter la classe pour la Lightbox
+                    });
+    
                     currentPage++;
-                    addExpandIconsListeners();
+                    addExpandIconsListeners(); // Réattacher les événements pour les nouvelles miniatures
                 }
-
+    
                 if (!responseData.data.post_next_page) {
                     button.style.display = 'none';
                 } else {
@@ -193,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.error('Erreur Fetch:', error);
             });
     }
+    
 });
 
 

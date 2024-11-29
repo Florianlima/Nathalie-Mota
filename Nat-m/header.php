@@ -22,17 +22,12 @@
                     <span></span>
                 </div>
                 <div class="fullscreenMenu">
-                    <ul>
-                        <li id="menu-item-74" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-74">
-                            <a href="/" aria-current="page">accueil</a>
-                        </li>
-                        <li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19">
-                            <a href="http://nathalie-mota.local/a-propos/">à propos</a>
-                        </li>
-                        <li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-18">
-                            <a href="http://nathalie-mota.local/contact/" class="modal-trigger">contact</a>
-                        </li>
-                    </ul>
+                <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'menu_class' => '',
+                    ));
+                    ?>
                 </div>
                 <ul class="main-menu">
                     <?php

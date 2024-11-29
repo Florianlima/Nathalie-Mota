@@ -59,7 +59,7 @@ function addExpandIconsListeners() {
     const expandIcons = document.querySelectorAll('.thumbnail-hover__expand');
     expandIcons.forEach(expandIcon => {
         expandIcon.addEventListener('click', (event) => {
-            /*event.stopPropagation();*/
+            event.stopPropagation();
             const photoId = expandIcon.closest('.thumbnail').dataset.id;
             Lightbox(photoId);
         });
@@ -95,8 +95,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     attachEvent('.lightbox__close', 'click', CacherLightbox);
-    attachEvent('.lightbox__next', 'click', Imgsuivante);
-    attachEvent('.lightbox__prev', 'click', Imgprécédente);
+    // attachEvent('.lightbox__next', 'click', Imgsuivante);
+    // attachEvent('.lightbox__prev', 'click', Imgprécédente);
 });
 
 

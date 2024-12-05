@@ -172,23 +172,23 @@ document.addEventListener('DOMContentLoaded', function () {
                     const photosList = document.getElementById('photos-list');
                     const lightboxContainer = document.querySelector('.lightbox__container');
     
-                    // Ajouter les nouvelles miniatures
+                    
                     if (replace) {
                         photosList.innerHTML = responseData.data.html;
-                        lightboxContainer.innerHTML = responseData.data.html; // Réutilise le HTML en l'ajustant
+                        lightboxContainer.innerHTML = responseData.data.html; 
                     } else {
                         photosList.insertAdjacentHTML('beforeend', responseData.data.html);
-                        lightboxContainer.insertAdjacentHTML('beforeend', responseData.data.html); // Ajoute les nouvelles miniatures
+                        lightboxContainer.insertAdjacentHTML('beforeend', responseData.data.html); 
                     }
     
                     // Mise à jour des classes pour la Lightbox
                     lightboxContainer.querySelectorAll('.thumbnail').forEach(thumbnail => {
-                        thumbnail.classList.remove('thumbnail'); // Retirer la classe originale
-                        thumbnail.classList.add('thumbnail-lightbox'); // Ajouter la classe pour la Lightbox
+                        thumbnail.classList.remove('thumbnail'); 
+                        thumbnail.classList.add('thumbnail-lightbox'); 
                     });
     
                     currentPage++;
-                    addExpandIconsListeners(); // Réattacher les événements pour les nouvelles miniatures
+                    addExpandIconsListeners(); 
                 }
     
                 if (!responseData.data.post_next_page) {

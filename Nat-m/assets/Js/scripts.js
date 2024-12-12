@@ -115,6 +115,11 @@ document.addEventListener('DOMContentLoaded', function () {
         const label = wrapper.querySelector('.label');
         const options = wrapper.querySelectorAll('.option');
 
+        const defaultLabels = { 
+            'photo-category-wrapper': 'Catégories',
+             'format-wrapper': 'Formats',
+             };
+
         options.forEach(option => {
             if (option.dataset.value === value) {
                 option.classList.add('selected');
@@ -126,6 +131,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const input = document.getElementById(wrapperId.replace('-wrapper', ''));
         input.value = value;
+        if (!value) {
+             label.innerHTML = defaultLabels[wrapperId] + '<i class="fas fa-chevron-down"></i>';
+        }
         wrapper.classList.remove('open');
         updateFilters();
     }

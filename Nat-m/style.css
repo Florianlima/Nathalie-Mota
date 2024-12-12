@@ -542,6 +542,10 @@ a {
   margin-right: 150px;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .filters-photos {
   display: flex;
   /*justify-content: space-between;*/
@@ -952,7 +956,7 @@ a {
 
 .fullscreenMenu {
   position: fixed;
-  top: 120px;
+  top: 108px;
   left: 0;
   width: 100%;
   height: 100vh;
